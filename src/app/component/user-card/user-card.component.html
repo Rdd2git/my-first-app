@@ -1,6 +1,8 @@
-<section>
-	<h2>id: {{user.id}}</h2>
-	<p>name: {{user.name}}</p>
-	<p>username: {{user.username}}</p>
-	<p>email: {{user.email}}</p>
-</section>
+<div class="user-card">
+	<h2>{{ user.name }}</h2>
+	<p>{{ user.email }}</p>
+	<p>{{ user.phone }}</p>
+	<p>{{ user.website }}</p>
+	<button (click)="onDelete(user.id)">Удалить</button>
+  </div>
+  

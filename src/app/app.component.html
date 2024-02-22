@@ -1,4 +1,9 @@
 <section>
-	<div><p>my-first-project</p></div>
-	<router-outlet></router-outlet>
+	<div>
+		<h2>{{title}}</h2>
+		<p>my-first-project</p>
+		<button (click)="goToUsers()">Go to Users</button>
+		<button (click)="goToHome()">Go to Home</button>
+	</div>
+	<router-outlet></router-outlet>	
 </section>

@@ -1,18 +1,31 @@
-import { Component, inject } from '@angular/core';
+import { Component,  OnInit, Output, inject } from '@angular/core';
 import { UsersService } from 'src/app/component/service/users-service.service';
-import { UsersApiService } from 'src/app/users-api-service.service';
+import { UsersApiService } from 'src/app/component/service/users-api-service.service';
+import  User  from 'src/app/types/user';
+
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.sass']
+  styleUrls: ['./users-list.component.sass'],
+
 })
-export class UsersListComponent {
-	usersService: UsersService=inject(UsersService);
+export class UsersListComponent implements OnInit {
+	
+	users: User[] =[];
+	usersService: UsersService = inject(UsersService);
+	usersApiService: UsersApiService = inject(UsersApiService);
 
-  constructor(private usersApiService: UsersApiService) {
+  constructor(
+	
+  ) {
+	  
   }
-
-  users = this.usersApiService.getUsers();
+  ngOnInit(): void {
+	this.usersApiService.getUsers().subscribe(users => this.usersService.users = users);
+  }
+  onDelete(id: number) {
+    this.usersService.deleteUser(id);
+  }
 
 }

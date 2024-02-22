@@ -22,4 +22,6 @@ import { UserCardComponent } from './component/user-card/user-card.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+	
+ }
